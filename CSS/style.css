@@ -1,0 +1,774 @@
+/* إعدادات الألوان العامة */
+:root {
+    --bg-primary: #0f0c15;
+    --bg-card: #1c1628;
+    --text-main: #f5f2fb;
+    --text-sub: #b2a4c7;
+    --purple-accent: #9d4edd;
+    --purple-light: #c77dff;
+    --border-color: #2f2540;
+    --shadow-color: rgba(0, 0, 0, 0.5);
+    --nav-bg: rgba(15, 12, 21, 0.95);
+}
+html:not(.dark-mode) {
+    --bg-primary: #f4f2f9;
+    --bg-card: #ffffff;
+    --text-main: #1f1a28;
+    --text-sub: #544968;
+    --purple-accent: #7b2cbf;
+    --purple-light: #9d4edd;
+    --border-color: #e3d9f0;
+    --shadow-color: rgba(123, 44, 191, 0.12);
+    --nav-bg: rgba(255, 255, 255, 0.95);
+}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html {
+    scroll-behavior: smooth;
+}
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-primary);
+    color: var(--text-main);
+    direction: rtl;
+    line-height: 1.6;
+}
+/* شريط التنقل */
+#navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: var(--nav-bg);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-color);
+    z-index: 1000;
+}
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 12px 20px;
+}
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+    color: var(--purple-accent);
+}
+#menuToggleBtn {
+    display: none;
+    background: transparent;
+    border: none;
+    color: var(--text-main);
+    font-size: 22px;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 6px;
+    transition: background-color 0.2s ease;
+}
+#menuToggleBtn:hover {
+    background-color: var(--border-color);
+}
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+}
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-sub);
+    font-weight: 600;
+    font-size: 15px;
+    padding: 5px 0;
+    transition: color 0.3s;
+}
+.nav-links a:hover, .nav-links a.active-nav {
+    color: var(--purple-accent);
+}
+#themeToggleBtn {
+    background: var(--bg-card);
+    color: var(--text-main);
+    border: 1px solid var(--border-color);
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 13px;
+    transition: all 0.3s;
+}
+#themeToggleBtn:hover {
+    background-color: var(--purple-accent);
+    color: #fff;
+}
+/* الأقسام والعناوين */
+.section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 120px 20px 60px 20px;
+    border-bottom: 1px solid var(--border-color);
+}
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+.section-title h2 {
+    font-size: 34px;
+    color: var(--text-main);
+    margin-bottom: 8px;
+}
+.section-title p {
+    color: var(--text-sub);
+    font-size: 17px;
+}
+/* قسم الترحيب */
+.welcome-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    width: 100%;
+    gap: 40px;
+}
+.welcome-content {
+    flex: 1;
+    text-align: right;
+}
+.welcome-content h1 {
+    font-size: 40px;
+    margin-bottom: 15px;
+    color: var(--purple-accent);
+}
+.welcome-content p {
+    font-size: 18px;
+    color: var(--text-sub);
+}
+.car-image-container {
+    flex: 1;
+    text-align: center;
+}
+.hero-car-img {
+    width: 100%;
+    max-width: 100%;
+    background-color: transparent;
+    height: auto;
+}
+/* البطاقات والعروض */
+.cards-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    max-width: 1200px;
+    width: 100%;
+}
+.card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 30px;
+    width: calc(33.333% - 20px);
+    min-width: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: right;
+    box-shadow: 0 8px 20px var(--shadow-color);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+.card:hover {
+    transform: translateY(-8px);
+    border-color: var(--purple-accent);
+}
+.card h3 {
+    font-size: 22px;
+    color: var(--text-main);
+    margin-bottom: 12px;
+}
+.card p {
+    font-size: 16px;
+    color: var(--text-sub);
+    line-height: 1.7;
+}
+.badge {
+    align-self: flex-start;
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+.price-badge {
+    background-color: rgba(157, 78, 221, 0.15);
+    color: var(--purple-light);
+    border: 1px solid var(--purple-accent);
+}
+.service-badge {
+    background-color: rgba(58, 134, 255, 0.15);
+    color: #3a86ff;
+    border: 1px solid #3a86ff;
+}
+.card-footer {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px dashed var(--border-color);
+}
+.price-tag {
+    font-weight: bold;
+    color: var(--purple-accent);
+    font-size: 16px;
+}
+.service-tag {
+    font-weight: bold;
+    color: #3a86ff;
+    font-size: 16px;
+}
+.working-hours {
+    margin-top: 10px;
+    color: var(--purple-accent);
+}
+/* التذييل وأيقونات التواصل */
+#footer-section {
+    background-color: var(--bg-card);
+    border-top: 1px solid var(--border-color);
+    padding: 60px 20px;
+    text-align: center;
+}
+.footer-content h3 {
+    color: var(--purple-accent);
+    margin-bottom: 15px;
+    font-size: 24px;
+}
+.footer-content p {
+    color: var(--text-sub);
+    margin: 5px 0;
+    font-size: 16px;
+}
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 25px 0;
+}
+.social-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    font-size: 18px;
+    color: #ffffff;
+    text-decoration: none;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+.social-btn:hover {
+    transform: translateY(-3px);
+    opacity: 0.9;
+}
+.social-btn.fb { background-color: #1877f2; }
+.social-btn.wa { background-color: #25d366; }
+.social-btn.ig { background-color: #e1306c; }
+.social-btn.x  { background-color: #000000; border: 1px solid #444; }
+html.dark-mode .social-btn.x {
+    background-color: #ffffff;
+    color: #000000;
+}
+.footer-content .copy {
+    margin-top: 20px;
+    font-size: 14px;
+}
+/* التصميم المتجاوب */
+@media (max-width: 992px) {
+    #menuToggleBtn {
+        display: block;
+    }
+    .nav-container {
+        position: relative;
+        padding: 10px 15px;
+    }
+    .logo {
+        font-size: 19px;
+    }
+    #themeToggleBtn {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+    .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        width: 100%;
+        background-color: var(--bg-card);
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        padding: 0;
+        border-bottom: 1px solid var(--border-color);
+        box-shadow: 0 15px 30px var(--shadow-color);
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease, padding 0.3s ease;
+    }
+    .nav-links.mobile-open {
+        max-height: 380px;
+        opacity: 1;
+        padding: 20px 0;
+    }
+    .nav-links a {
+        font-size: 15px;
+        width: 100%;
+        text-align: center;
+    }
+    .section {
+        min-height: auto;
+        padding: 85px 15px 45px 15px;
+        justify-content: flex-start;
+    }
+    .section-title {
+        margin-bottom: 25px;
+    }
+    .section-title h2 {
+        font-size: 24px;
+        margin-bottom: 6px;
+    }
+    .section-title p {
+        font-size: 14px;
+    }
+    .welcome-container {
+        flex-direction: column-reverse;
+        text-align: center;
+        gap: 20px;
+    }
+    .welcome-content {
+        text-align: center;
+    }
+    .welcome-content h1 {
+        font-size: 26px;
+        line-height: 1.35;
+        margin-bottom: 12px;
+    }
+    .welcome-content p {
+        font-size: 15px;
+        line-height: 1.6;
+    }
+
+    .cards-grid {
+        gap: 16px;
+    }
+    .card {
+        width: 100%;
+        padding: 20px 18px;
+        min-width: 0;
+    }
+    .card h3 {
+        font-size: 19px;
+        margin-bottom: 8px;
+    }
+    .card p {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+    .badge {
+        font-size: 12px;
+        padding: 4px 10px;
+        margin-bottom: 10px;
+    }
+    .price-tag, .service-tag {
+        font-size: 14px;
+    }
+    .working-hours {
+        font-size: 13px;
+    }
+    #footer-section {
+        padding: 45px 15px;
+    }
+    .footer-content h3 {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+    .footer-content p {
+        font-size: 14px;
+    }
+    .social-icons {
+        gap: 12px;
+        margin: 20px 0;
+    }
+    .social-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+    .footer-content .copy {
+        font-size: 12px;
+        margin-top: 15px;
+    }
+}
+/* حركة السيارة وتأثيرات الهواء */
+.car-animation-wrapper {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    max-width: 500px;
+}
+.hero-car-img {
+    width: 100%;
+    border-radius: 16px;
+    position: relative;
+    z-index: 2;
+}
+@keyframes carDriveEffect {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+    }
+}
+.wind-line {
+    position: absolute;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--purple-light), transparent);
+    border-radius: 50%;
+    z-index: 1;
+    opacity: 0.7;
+    filter: drop-shadow(0 0 6px var(--purple-accent));
+    animation: windFlow 2.2s linear infinite;
+}
+.wind-line.line-1 {
+    top: 25%;
+    right: -15%;
+    width: 120px;
+    animation-delay: 0s;
+}
+.wind-line.line-2 {
+    top: 55%;
+    right: -25%;
+    width: 180px;
+    animation-delay: 0.7s;
+}
+.wind-line.line-3 {
+    top: 75%;
+    right: -10%;
+    width: 100px;
+    animation-delay: 1.4s;
+}
+@keyframes windFlow {
+    0% {
+        transform: translateX(60px);
+        opacity: 0;
+    }
+    30% {
+        opacity: 0.9;
+    }
+    70% {
+        opacity: 0.9;
+    }
+    100% {
+        transform: translateX(-350px);
+        opacity: 0;
+    }
+}
+.car-animation-wrapper::before {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 10%;
+    right: 10%;
+    height: 25px;
+    background: var(--purple-accent);
+    filter: blur(25px);
+    opacity: 0.4;
+    z-index: 111;
+    animation: glowPulse 3s ease-in-out infinite;
+}
+@keyframes glowPulse {
+    0%, 100% {
+        transform: scale(0.9);
+        opacity: 0.3;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.6;
+    }
+}
+/*==============================================================*/
+/* ==========================================
+   تنسيقات صفحة السيارات وجدول العرض والنموذج
+   ========================================== */
+
+.cars-table-section {
+    padding: 120px 20px 60px 20px;
+}
+
+/* حاوية الجدول المتجاوبة */
+.table-responsive-container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    overflow-x: auto;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    box-shadow: 0 10px 30px var(--shadow-color);
+}
+
+.cars-data-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: right;
+    white-space: nowrap;
+}
+
+.cars-data-table th, 
+.cars-data-table td {
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 15px;
+    color: var(--text-main);
+}
+
+.cars-data-table th {
+    background-color: rgba(157, 78, 221, 0.1);
+    color: var(--purple-accent);
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.cars-data-table tr:last-child td {
+    border-bottom: none;
+}
+
+.cars-data-table tr:hover td {
+    background-color: rgba(157, 78, 221, 0.03);
+}
+
+/* مربعات الاختيار (Checkbox) */
+.car-select-checkbox, 
+.toggle-details-checkbox {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--purple-accent);
+    cursor: pointer;
+}
+
+/* صف تفاصيل السيارة المخفي */
+.car-details-row td {
+    background-color: rgba(157, 78, 221, 0.05);
+    padding: 15px 20px;
+}
+
+.car-specs-box {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    font-size: 14px;
+    color: var(--text-sub);
+}
+
+.car-specs-box strong {
+    color: var(--text-main);
+}
+
+/* زر المتابعة */
+.proceed-container {
+    max-width: 1200px;
+    margin: 30px auto 0 auto;
+    text-align: left;
+}
+
+.btn-proceed {
+    background-color: var(--purple-accent);
+    color: #ffffff;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 6px 20px rgba(157, 78, 221, 0.3);
+}
+
+.btn-proceed:hover {
+    background-color: var(--purple-light);
+    transform: translateY(-2px);
+}
+
+/* ==========================================
+   نموذج الحجز (Booking Form Section)
+   ========================================== */
+.booking-section {
+    padding: 40px 20px 80px 20px;
+}
+
+.form-card-container {
+    max-width: 700px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.form-card-container fieldset {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 35px;
+    box-shadow: 0 10px 30px var(--shadow-color);
+}
+
+.form-card-container legend {
+    background-color: var(--purple-accent);
+    color: #ffffff;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: right;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: var(--text-main);
+    font-weight: 600;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-primary);
+    color: var(--text-main);
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-group input:focus {
+    border-color: var(--purple-accent);
+    box-shadow: 0 0 10px rgba(157, 78, 221, 0.2);
+}
+
+/* رسائل الخطأ */
+.error-msg {
+    display: block;
+    color: #ff4d4d;
+    font-size: 12px;
+    margin-top: 5px;
+    font-weight: 500;
+}
+
+/* زر إرسال الطلب النهائي */
+.btn-submit-final {
+    width: 100%;
+    background: linear-gradient(135deg, var(--purple-accent), #7b2cbf);
+    color: #ffffff;
+    border: none;
+    padding: 14px;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: opacity 0.3s, transform 0.2s;
+    box-shadow: 0 6px 20px rgba(157, 78, 221, 0.3);
+}
+
+.btn-submit-final:hover {
+    opacity: 0.95;
+    transform: translateY(-2px);
+}
+
+/* ==========================================
+   نافذة النتيجة المنبثقة (Result Modal)
+   ========================================== */
+.result-body-content {
+    text-align: right;
+    font-size: 15px;
+    color: var(--text-main);
+    line-height: 1.8;
+}
+
+.result-body-content ul {
+    margin: 15px 0;
+    padding-right: 20px;
+}
+
+.result-body-content li {
+    margin-bottom: 8px;
+    color: var(--text-sub);
+}
+
+.discount-notice {
+    background-color: rgba(40, 167, 69, 0.15);
+    color: #28a745;
+    border: 1px solid #28a745;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    margin: 15px 0;
+    text-align: center;
+}
+
+.final-total {
+    color: var(--purple-accent);
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 15px;
+    text-align: center;
+    background-color: rgba(157, 78, 221, 0.1);
+    padding: 10px;
+    border-radius: 8px;
+}
+
+/* ==========================================
+   التصميم المتجاوب للشاشات الصغيرة (Mobile & Tablet)
+   ========================================== */
+@media (max-width: 768px) {
+    .cars-table-section {
+        padding: 90px 15px 40px 15px;
+    }
+
+    .cars-data-table th, 
+    .cars-data-table td {
+        padding: 12px 14px;
+        font-size: 13px;
+    }
+
+    .car-specs-box {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .form-card-container fieldset {
+        padding: 20px;
+    }
+
+    .btn-proceed {
+        width: 100%;
+        text-align: center;
+    }
+}

@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ar" lang="ar" dir="rtl">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>من نحن - نخبة السيارات الفاخرة</title>
+    <!-- ربط ملف التنسيق الموحد -->
+    <link rel="stylesheet" type="text/css" href="CSS/style.css" />
+    <!-- ربط مكتبة Font Awesome للأيقونات -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <!-- ربط مكتبة jQuery -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+    <!-- شريط التنقل العلوي -->
+    <!-- شريط التنقل العلوي -->
+    <div id="navbar">
+        <div class="nav-container">
+            <!-- الجهة اليمنى: زر القائمة (للشاشات الصغيرة) + اللوغو -->
+            <div class="nav-right">
+                <button id="menuToggleBtn" type="button" aria-label="فتح القائمة">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="logo">نخبة السيارات</div>
+            </div>
+
+            <!-- القائمة الرئيسية (تنسدل كـ Sidebar على الجوال) -->
+            <ul class="nav-links">
+                <li><a href="home.html">الرئيسية</a></li>
+                <li><a href="AboutUs.html">من نحن</a></li>
+                <li><a href="AboutUs.html#offers-section">العروض</a></li>
+                <li><a href="AboutUs.html#branches-section">فروعنا</a></li>
+                <li><a href="Cars.html">أسطولنا والطلب</a></li>
+                <li><a href="#footer-section">تواصل معنا</a></li>
+            </ul>
+
+            <!-- الجهة اليسرى: زر تبديل المظهر -->
+            <button id="themeToggleBtn" type="button">🌓 تبديل المظهر</button>
+        </div>
+    </div>
+
+    <!-- السكشن الأول: الترحيب -->
+    <<!-- السكشن الأول: الترحيب (مع انيميشن السيارة والهواء) -->
+    <div id="welcome-section" class="section">
+        <div class="welcome-container">
+            <div class="welcome-content">
+                <h1>مرحباً بكم في عالم الفخامة والسرعة</h1>
+                <p>وجهتكم الأولى لاستئجار أروع السيارات الرياضية والفارهة، لنضمن لكم تجربة قيادة استثنائية لا تُنسى بأعلى معايير الرفاهية والأمان.</p>
+            </div>
+            
+            <!-- حاوية السيارة مع تأثير الهواء والسرعة -->
+            <div class="car-image-container">
+                <div class="car-animation-wrapper">
+                    <!-- خطوط الهواء (Wind Streaks) -->
+                    <div class="wind-line line-1"></div>
+                    <div class="wind-line line-2"></div>
+                    <div class="wind-line line-3"></div>
+                    
+                    <!-- صورة السيارة المفرغة -->
+                    <img src="imag/2.png" alt="سيارة فارهة" class="hero-car-img" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- السكشن الثاني: فلسفتنا ومن نحن -->
+    <div id="about-section" class="section">
+        <div class="section-title">
+            <h2>فلسفتنا ومن نحن</h2>
+            <p>تعرف على القيم التي تقودنا لتقديم الأفضل دائماً</p>
+        </div>
+        <div class="cards-grid">
+            <div class="card">
+                <h3>من نحن؟</h3>
+                <p>نحن شركة رائدة في قطاع تأجير السيارات الفاخرة، نؤمن بأن السيارة ليست مجرد وسيلة تنقل، بل هي تجسيد للشغف، الأناقة، والقوة المطلقة على الطرقات.</p>
+            </div>
+            <div class="card">
+                <h3>بماذا نؤمن؟</h3>
+                <p>نؤمن بأهمية تقديم خدمة عملاء متميزة، موثوقية عالية، وأمان تام. هدفنا هو تمكين عملائنا من عيش تجربة قيادة الأحلام بكل سهولة ويسر.</p>
+            </div>
+            <div class="card">
+                <h3>أسطولنا الحصري</h3>
+                <p>نتخصص في تأجير أفخم السيارات العالمية، وعلى رأسها أسطول متكامل من سيارات <strong>فيراري (Ferrari)</strong> الخارقة، وأحدث طرازات <strong>مرسيدس-بنز (Mercedes-Benz)</strong>.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- السكشن الثالث: العروض الحالية -->
+    <div id="offers-section" class="section">
+        <div class="section-title">
+            <h2>عروضنا الحصرية الحالية</h2>
+            <p>اختر من بين عروض الأسعار أو باقات الخدمات المميزة</p>
+        </div>
+        <div class="cards-grid">
+            <div class="card offer-card">
+                <span class="badge price-badge">عرض سعر</span>
+                <h3>باقة عطلة نهاية الأسبوع</h3>
+                <p>استأجر مرسيدس S-Class لمدة يومين واحصل على الثالث مجاناً مع خصم خاص على القيمة الإجمالية.</p>
+                <div class="card-footer">
+                    <span class="price-tag">توفير بنسبة 25%</span>
+                </div>
+            </div>
+            <div class="card offer-card">
+                <span class="badge price-badge">عرض سعر</span>
+                <h3>نبض السرعة - فيراري</h3>
+                <p>عرض استثنائي لتجربة قيادة سيارات فيراري الخارقة لفترة محدودة بأسعار تنافسية غير مسبوقة.</p>
+                <div class="card-footer">
+                    <span class="price-tag">ابتداءً من 1,500,000 ل.س / يوم</span>
+                </div>
+            </div>
+            <div class="card offer-card">
+                <span class="badge price-badge">عرض سعر</span>
+                <h3>باقة رجال الأعمال الشهري</h3>
+                <p>عقود تأجير طويلة الأجل لسيارات مرسيدس الفارهة المجهزة بالكامل مع سائق خاص أو بدون.</p>
+                <div class="card-footer">
+                    <span class="price-tag">خصم 30% للأشهر الثلاثة الأولى</span>
+                </div>
+            </div>
+            <div class="card offer-card">
+                <span class="badge service-badge">عرض خدمة</span>
+                <h3>التوصيل المجاني للمطار</h3>
+                <p>خدمة استلام وتسليم السيارة مجاناً من وإلى مطار دمشق الدولي أو أي مطار سوري آخر على مدار الساعة.</p>
+                <div class="card-footer">
+                    <span class="service-tag">خدمة مجانية 100%</span>
+                </div>
+            </div>
+            <div class="card offer-card">
+                <span class="badge service-badge">عرض خدمة</span>
+                <h3>خدمة السائق الشخصي VIP</h3>
+                <p>احصل على سائق محترف ومدرّب بعناية ليكون في خدمتكم طوال فترة التأجير لضمان أقصى درجات الراحة.</p>
+                <div class="card-footer">
+                    <span class="service-tag">متاحة طوال اليوم</span>
+                </div>
+            </div>
+            <div class="card offer-card">
+                <span class="badge service-badge">عرض خدمة</span>
+                <h3>التأمين الشامل الذهبي</h3>
+                <p>تغطية تأمينية شاملة ومجانية ضد كافة الحوادث والمخاطر لراحة بال مطلقة خلال رحلتك الاستثنائية.</p>
+                <div class="card-footer">
+                    <span class="service-tag">بدون رسوم إضافية</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- السكشن الرابع: الفروع -->
+    <div id="branches-section" class="section">
+        <div class="section-title">
+            <h2>فروعنا وأوقات الدوام في سوريا</h2>
+            <p>تفضل بزيارتنا في أحدث صالات العرض</p>
+        </div>
+        <div class="cards-grid">
+            <div class="card branch-card">
+                <h3>فرع دمشق (الرئيسي)</h3>
+                <p><strong>العنوان:</strong> أوتوستراد المزة، بجانب برج الأوتوستراد</p>
+                <p class="working-hours"><strong>أوقات الدوام:</strong> يومياً من 9:00 ص حتى 9:00 م</p>
+            </div>
+            <div class="card branch-card">
+                <h3>فرع حلب</h3>
+                <p><strong>العنوان:</strong> شارع السريان، مقابل الكنيسة الإنجيلية</p>
+                <p class="working-hours"><strong>أوقات الدوام:</strong> السبت - الخميس (10:00 ص - 8:00 م)</p>
+            </div>
+            <div class="card branch-card">
+                <h3>فرع اللاذقية</h3>
+                <p><strong>العنوان:</strong> أوتوستراد الثورة، عقدة الزراعة</p>
+                <p class="working-hours"><strong>أوقات الدوام:</strong> يومياً من 9:30 ص حتى 8:30 م</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- الفوتر مع الأيقونات -->
+    <footer id="footer-section">
+        <div class="footer-content">
+            <h3>تواصل معنا</h3>
+            <p><strong>الهاتف الموحد:</strong> 011-998877</p>
+            <p><strong>البريد الإلكتروني:</strong> info@luxurycars-sy.com</p>
+            
+            <div class="social-icons">
+                <a href="https://facebook.com" target="_blank" class="social-btn fb" title="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://whatsapp.com" target="_blank" class="social-btn wa" title="WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="https://instagram.com" target="_blank" class="social-btn ig" title="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://twitter.com" target="_blank" class="social-btn x" title="X (Twitter)">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                    </svg>
+                </a>
+            </div>
+
+            <p class="copy">جميع الحقوق محفوظة &copy; 2026 - نخبة السيارات الفاخرة</p>
+        </div>
+    </footer>
+
+    <!-- الجافا سكريبت -->
+    <script src="JS/myFunctions.js">
+        
+    </script>
+</body>
+</html>
