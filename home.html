@@ -3,65 +3,106 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ar" lang="ar" dir="rtl">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>الموقع الرئيسي - مكتب تأجير السيارات</title>
-  <link rel="stylesheet" type="text/css" href="CSS/style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>الرئيسية - نخبة السيارات</title>
+    <!-- ربط ملف التنسيق الموحد -->
+    <link rel="stylesheet" type="text/css" href="CSS/style.css" />
+    <!-- ربط مكتبة Font Awesome للأيقونات -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <!-- ربط مكتبة jQuery -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-    <div id="header">
-        <h1>مكتب التأجير الذهبي للسيارات</h1>
-        <ul id="nav">
-            <li><a href="home.html">الرئيسية</a></li>
-            <li><a href="AboutUs.html">من نحن</a></li>
-            <li><a href="Cars.html">السيارات والحجز</a></li>
-        </ul>
+
+    <!-- شريط التنقل العلوي -->
+    <div id="navbar">
+        <div class="nav-container">
+            <div class="nav-right">
+                <button id="menuToggleBtn" type="button" aria-label="فتح القائمة">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="logo">نخبة السيارات</div>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="index.html.html#about-section">من نحن</a></li>
+                <li><a href="index.html.html#offers-section">العروض</a></li>
+                <li><a href="index.html.html#branches-section">فروعنا</a></li>
+                <li><a href="Cars.html#cars-section">أسطولنا والطلب</a></li>
+                <li><a href="#footer-section">تواصل معنا</a></li>
+            </ul>
+
+            <button id="themeToggleBtn" type="button">🌓 تبديل المظهر</button>
+        </div>
     </div>
 
-    <div id="content">
-        <h2>أعضاء المجموعة (F25)</h2>
-        <table border="1" class="info-table">
-            <thead>
-                <tr>
-                    <th>الاسم باللغة العربية</th>
-                    <th>Full Name in English</th>
-                    <th>الرقم الجامعي (ID)</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>عبد الله خالد عبدوه</td>
-                    <td>Abdullah Khalid Abdoh</td>
-                    <td>123456</td>
-                </tr>
-                <tr>
-                    <td>اسم الطالب الثاني</td>
-                    <td>Second Student Name</td>
-                    <td>234567</td>
-                </tr>
-                <tr>
-                    <td>اسم الطالب الثالث</td>
-                    <td>Third Student Name</td>
-                    <td>345678</td>
-                </tr>
-                <tr>
-                    <td>اسم الطالب الرابع</td>
-                    <td>Fourth Student Name</td>
-                    <td>456789</td>
-                </tr>
-            </tbody>
-        </table>
+    <!-- المحتوى الرئيسي للصفحة -->
+    <div class="section home-clean-section">
+        <div class="section-title">
+            <h2>أسماء الطلاب المشاركين في المشروع (F25)</h2>
+            <p>الجامعة الافتراضية السورية (SVU) - برنامج إجازة في الهندسة المعلوماتية / BAIT</p>
+        </div>
 
-        <h2>رابط نشر الموقع على الإنترنت</h2>
-        <p>
-            يمكنكم زيارة الموقع المنشور عبر الرابط التالي: 
-            <a href="https://example.com" target="_blank">رابط الموقع على المخدم المجاني</a>
-        </p>
+        <!-- جدول أسماء الطلاب بعرض 80% من الشاشة -->
+        <div class="home-table-wrapper">
+            <table class="students-data-table">
+                <thead>
+                    <tr>
+                        <th>الاسم الكامل (بالعربية)</th>
+                        <th>Full Name (English)</th>
+                        <th>الرقم الجامعي (ID)</th>
+                        <th>الصف</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>عبد الله خالد عبده</td>
+                        <td>Abdullah Khalid Abdoh</td>
+                        <td>Abdullah_450165</td>
+                        <td>C1</td>
+                    </tr>
+                    <tr>
+                        <td>بشير عبدالرحمن</td>
+                        <td>basher abdalrahman</td>
+                        <td>basher_427402</td>
+                        <td>C1</td>
+                    </tr>
+                    <tr>
+                        <td>حازم دبابو</td>
+                        <td>hazem dababo</td>
+                        <td>hazem_416155</td>
+                        <td>C1</td>
+                    </tr>
+                    <tr>
+                        <td>مريم محمد كامبوامور</td>
+                        <td>maryam campoamor</td>
+                        <td>maryam_196634</td>
+                        <td>C1</td>
+                    </tr>
+                    <tr>
+                        <td>نور مصطفى الهدهد</td>
+                        <td>Nour Alhudhud</td>
+                        <td>nour_210804</td>
+                        <td>C1</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
-        <h2>ملاحظات إضافية</h2>
-        <p>تم تصميم هذا الموقع وفق شروط ومتطلبات لغة XHTML وتنسيقات CSS الموحدة مع برمجيات التحقق عبر الجافا سكريبت والجيكويري.</p>
+        <!-- معلومات إضافية وأيقونة الانتقال -->
+        <div class="deploy-action-container">     
+            <a href="https://abdullah-abdoh.github.io/Car-Rental-Project/home.html" target="_blank" class="deploy-icon-btn" title="الانتقال للموقع المباشر">
+                <i class="fas fa-rocket"></i>
+                <span>زيارة الموقع </span>
+                <i class="fas fa-arrow-left"></i>
+            </a>
+        </div>
     </div>
 
-    <div id="footer">
-        <p>جميع الحقوق محفوظة &copy; 2026 - الجامعة الافتراضية السورية SVU</p>
-    </div>
+    
+
+    <!-- ربط السكريبت الموحد -->
+    <script type="text/javascript" src="JS/myFunctions.js"></script>
 </body>
 </html>

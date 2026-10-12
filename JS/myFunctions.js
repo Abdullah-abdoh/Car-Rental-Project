@@ -1,5 +1,5 @@
 /* ==========================================
-   تحديثات صفحة السيارات وجدول الحجز والتحقق
+   myFunctions.js - السكريبت الموحد والنهائي للموقع
    ========================================== */
 
 (function() {
@@ -15,7 +15,117 @@
 
 $(document).ready(function() {
 
-    // 1. إظهار/إخفاء تفاصيل السيارات عبر jQuery (دعم إظهار عدة سيارات في آن واحد)
+    // 1. إدارة الثيم والقائمة الجانبية
+    $('#themeToggleBtn').on('click', function() {
+        document.documentElement.classList.toggle('dark-mode');
+        var isDark = document.documentElement.classList.contains('dark-mode');
+        localStorage.setItem('site_theme', isDark ? 'dark' : 'light');
+    });
+
+    $('#menuToggleBtn').on('click', function() {
+        $('.nav-links').toggleClass('mobile-open');
+        var $icon = $(this).find('i');
+        if ($('.nav-links').hasClass('mobile-open')) {
+            $icon.removeClass('fa-bars').addClass('fa-times');
+        } else {
+            $icon.removeClass('fa-times').addClass('fa-bars');
+        }
+    });
+
+    $('.nav-links a').on('click', function() {
+        if ($('.nav-links').hasClass('mobile-open')) {
+            $('.nav-links').removeClass('mobile-open');
+            $('#menuToggleBtn').find('i').removeClass('fa-times').addClass('fa-bars');
+        }
+    });
+
+    // 2. تحديد اللون النشط عند فتح الصفحة لأول مرة
+    function setInitialActiveNav() {
+        var currentPath = window.location.pathname.split("/").pop();
+        var currentHash = window.location.hash;
+        
+        if (currentPath === "" || currentPath === "index.html") currentPath = "home.html";
+        $('.nav-links a').removeClass('active-nav');
+        
+        if (currentHash) {
+            $('.nav-links a[href$="' + currentHash + '"]').addClass('active-nav');
+        } else if (currentPath === "AboutUs.html") {
+            $('.nav-links a[href$="#welcome-section"]').addClass('active-nav');
+        } else if (currentPath === "Cars.html") {
+            $('.nav-links a[href$="#cars-section"]').addClass('active-nav');
+        } else {
+            $('.nav-links a[href="' + currentPath + '"]').addClass('active-nav');
+        }
+    }
+    setInitialActiveNav();
+
+    // 3. تتبع التمرير (ScrollSpy) المطور الذي يتجاهل الأقسام المخفية!
+    $(window).on('scroll', function() {
+        var scrollPos = $(window).scrollTop() + 200;
+        var windowHeight = $(window).height();
+        var documentHeight = $(document).height();
+
+        // التفعيل للفوتر عند الوصول لأسفل الصفحة
+        if ((windowHeight + $(window).scrollTop()) >= documentHeight - 40) {
+            $('.nav-links a').removeClass('active-nav');
+            $('.nav-links a[href$="#footer-section"]').addClass('active-nav');
+            return;
+        }
+
+        var activeId = null;
+        $('.section').each(function() {
+            // الشرط الذهبي: نعالج السكشن فقط إذا كان ظاهراً على الشاشة (ليس مخفياً)
+            if ($(this).is(':visible')) {
+                var top = $(this).offset().top;
+                var height = $(this).outerHeight();
+                var id = $(this).attr('id');
+
+                if (id && scrollPos >= top && scrollPos < top + height) {
+                    activeId = id;
+                }
+            }
+        });
+
+        if (activeId) {
+            var $link = $('.nav-links a[href$="#' + activeId + '"]');
+            if ($link.length) {
+                $('.nav-links a').removeClass('active-nav');
+                $link.addClass('active-nav');
+            }
+        }
+    });
+
+    // 4. التمرير الناعم ضمن نفس الصفحة
+    $('.nav-links a').on('click', function(e) {
+        var targetUrl = $(this).attr('href');
+        var hashIndex = targetUrl.indexOf('#');
+        
+        if (hashIndex !== -1) {
+            var hash = targetUrl.substring(hashIndex);
+            var page = targetUrl.substring(0, hashIndex);
+            var currentPath = window.location.pathname.split("/").pop();
+            
+            if (page === "" || page === currentPath) {
+                e.preventDefault();
+                var $targetElem = $(hash);
+                // تأكد من أن السكشن المستهدف موجود ومرئي
+                if ($targetElem.length && $targetElem.is(':visible')) {
+                    $('.nav-links a').removeClass('active-nav');
+                    $(this).addClass('active-nav');
+
+                    var offsetTop = ($targetElem.is('#footer-section')) ? $targetElem.offset().top : $targetElem.offset().top - 70;
+
+                    $('html, body').animate({
+                        scrollTop: offsetTop
+                    }, 500);
+                }
+            }
+        }
+    });
+
+    // ==========================================
+    // 5. برمجيات السيارات ونموذج الحجز
+    // ==========================================
     $('.toggle-details-checkbox').on('change', function() {
         var $detailsRow = $(this).closest('tr').next('.car-details-row');
         if ($(this).is(':checked')) {
@@ -25,7 +135,6 @@ $(document).ready(function() {
         }
     });
 
-    // 2. زر "متابعة" لإظهار نموذج الحجز بعد التأكد من اختيار سيارة واحدة على الأقل
     $('#proceedBtn').on('click', function() {
         var selectedCount = $('.car-select-checkbox:checked').length;
         if (selectedCount === 0) {
@@ -38,7 +147,6 @@ $(document).ready(function() {
         }, 500);
     });
 
-    // 3. التحقق من صحة المدخلات في نموذج الحجز (Validation)
     $('#rentalForm').on('submit', function(e) {
         e.preventDefault();
         let isValid = true;
@@ -127,79 +235,9 @@ $(document).ready(function() {
         }
     });
 
-    // إغلاق نافذة النتيجة
     $('#closeResultModal, #resultModal').on('click', function(e) {
         if (e.target === this) {
             $('#resultModal').fadeOut(200);
-        }
-    });
-
-    // زر تبديل الثيم
-    $('#themeToggleBtn').on('click', function() {
-        document.documentElement.classList.toggle('dark-mode');
-        localStorage.setItem('site_theme', document.documentElement.classList.contains('dark-mode') ? 'dark' : 'light');
-    });
-
-    // فتح وإغلاق القائمة الجانبية للموبايل والتابلت
-    $('#menuToggleBtn').on('click', function() {
-        $('.nav-links').toggleClass('mobile-open');
-        var $icon = $(this).find('i');
-        if ($('.nav-links').hasClass('mobile-open')) {
-            $icon.removeClass('fa-bars').addClass('fa-times');
-        } else {
-            $icon.removeClass('fa-times').addClass('fa-bars');
-        }
-    });
-
-    // إغلاق القائمة تلقائياً عند النقر على أي رابط ضمنها
-    $('.nav-links a').on('click', function() {
-        if ($('.nav-links').hasClass('mobile-open')) {
-            $('.nav-links').removeClass('mobile-open');
-            $('#menuToggleBtn').find('i').removeClass('fa-times').addClass('fa-bars');
-        }
-    });
-
-    // تتبع التمرير (ScrollSpy) للأقسام داخل نفس الصفحة فقط
-    $(window).on('scroll', function() {
-        if ($('.section').length === 0) return;
-        
-        var scrollPos = $(window).scrollTop() + 200;
-        var windowHeight = $(window).height();
-        var documentHeight = $(document).height();
-
-        if ((windowHeight + $(window).scrollTop()) >= documentHeight - 40) {
-            $('.nav-links a[href^="#"]').removeClass('active-nav');
-            $('.nav-links a[href="#footer-section"]').addClass('active-nav');
-            return;
-        }
-
-        $('.section').each(function() {
-            var top = $(this).offset().top;
-            var height = $(this).outerHeight();
-            var id = $(this).attr('id');
-
-            if (scrollPos >= top && scrollPos < top + height) {
-                $('.nav-links a[href^="#"]').removeClass('active-nav');
-                $('.nav-links a[href="#' + id + '"]').addClass('active-nav');
-            }
-        });
-    });
-
-    $('.nav-links a').on('click', function(e) {
-        var target = $(this).attr('href');
-        if (target && target.startsWith('#')) {
-            e.preventDefault();
-            var $targetElem = $(target);
-            if ($targetElem.length) {
-                $('.nav-links a').removeClass('active-nav');
-                $(this).addClass('active-nav');
-
-                var offsetTop = ($targetElem.is('#footer-section')) ? $targetElem.offset().top : $targetElem.offset().top - 70;
-
-                $('html, body').animate({
-                    scrollTop: offsetTop
-                }, 500);
-            }
         }
     });
 
