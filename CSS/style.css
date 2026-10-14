@@ -186,7 +186,10 @@ body {
 .students-data-table {
     width: 100%;
     border-collapse: collapse;
-    text-align: right;
+    text-align: center;   
+}
+table{
+    text-align: center;
 }
 
 .students-data-table th, 
@@ -357,7 +360,6 @@ body {
     color: var(--purple-accent);
 }
 
-/* حركة السيارة وتأثيرات الهواء (Animations) */
 .car-animation-wrapper {
     position: relative;
     display: inline-block;
@@ -730,8 +732,6 @@ html.dark-mode .social-btn.x {
 /* ==========================================
    8. التجاوب مع الشاشات (Media Queries)
    ========================================== */
-
-/* للشاشات المتوسطة والتابلت (أقل من 992px) */
 @media (max-width: 992px) {
     #menuToggleBtn { display: block; }
     .nav-container { position: relative; padding: 10px 15px; }
@@ -769,14 +769,10 @@ html.dark-mode .social-btn.x {
     .card p { font-size: 14px; line-height: 1.6; }
 }
 
-/* للشاشات الصغيرة والموبايل (أقل من 768px) */
 @media (max-width: 768px) {
-    /* تجاوب الصفحة الرئيسية */
     .home-table-wrapper, .deploy-action-container { width: 95%; }
     .students-data-table th, .students-data-table td { padding: 12px 15px; font-size: 14px; }
     .deploy-icon-btn { width: 100%; font-size: 15px; padding: 14px 20px; flex-direction: column; gap: 8px; }
-
-    /* تجاوب صفحة السيارات */
     .cars-table-section { padding: 90px 15px 40px 15px; }
     .cars-data-table th, .cars-data-table td { padding: 12px 14px; font-size: 13px; }
     .car-specs-box { flex-direction: column; gap: 8px; }
@@ -790,8 +786,6 @@ html.dark-mode .social-btn.x {
     padding: 120px 20px 80px 20px;
     min-height: calc(100vh - 80px);
 }
-
-/* حاوية الجدول (عرض 80%) */
 .home-table-wrapper {
     width: 80%;
     margin: 0 auto;
@@ -827,7 +821,6 @@ html.dark-mode .social-btn.x {
     background-color: rgba(157, 78, 221, 0.04);
 }
 
-/* قسم الزر والملاحظات */
 .deploy-action-container {
     text-align: center;
     margin-top: 40px;
@@ -843,7 +836,6 @@ html.dark-mode .social-btn.x {
     line-height: 1.6;
 }
 
-/* زر الانتقال للموقع المباشر */
 .deploy-icon-btn {
     display: inline-flex;
     align-items: center;
@@ -870,7 +862,6 @@ html.dark-mode .social-btn.x {
     font-size: 20px;
 }
 
-/* تجاوب الصفحة الرئيسية للشاشات الصغيرة (الموبايل) */
 @media (max-width: 768px) {
     .home-table-wrapper, 
     .deploy-action-container {
@@ -891,7 +882,6 @@ html.dark-mode .social-btn.x {
         gap: 8px;
     }
 }
-/* جعل الأيقونة بيضاء في الوضع الداكن (الافتراضي لدينا) */
 input[type="date"]::-webkit-calendar-picker-indicator {
     filter: invert(1) brightness(1.5);
     cursor: pointer;
@@ -902,7 +892,6 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
     opacity: 1;
 }
 
-/* إعادة الأيقونة للونها الطبيعي (الغامق) في الوضع الفاتح */
 html:not(.dark-mode) input[type="date"]::-webkit-calendar-picker-indicator {
     filter: none;
 }

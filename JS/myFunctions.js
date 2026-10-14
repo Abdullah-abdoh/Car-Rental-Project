@@ -1,7 +1,3 @@
-/* ==========================================
-   myFunctions.js - السكريبت الموحد والنهائي للموقع
-   ========================================== */
-
 (function() {
     var savedTheme = localStorage.getItem('site_theme');
     if (savedTheme) {
@@ -15,7 +11,7 @@
 
 $(document).ready(function() {
 
-    // 1. إدارة الثيم والقائمة الجانبية
+    // إدارة الثيم والقائمة الجانبية
     $('#themeToggleBtn').on('click', function() {
         document.documentElement.classList.toggle('dark-mode');
         var isDark = document.documentElement.classList.contains('dark-mode');
@@ -39,7 +35,7 @@ $(document).ready(function() {
         }
     });
 
-    // 2. تحديد اللون النشط عند فتح الصفحة لأول مرة
+    //تحديد اللون النشط عند فتح الصفحة لأول مرة
     function setInitialActiveNav() {
         var currentPath = window.location.pathname.split("/").pop();
         var currentHash = window.location.hash;
@@ -59,13 +55,12 @@ $(document).ready(function() {
     }
     setInitialActiveNav();
 
-    // 3. تتبع التمرير (ScrollSpy) المطور الذي يتجاهل الأقسام المخفية!
+
     $(window).on('scroll', function() {
         var scrollPos = $(window).scrollTop() + 200;
         var windowHeight = $(window).height();
         var documentHeight = $(document).height();
 
-        // التفعيل للفوتر عند الوصول لأسفل الصفحة
         if ((windowHeight + $(window).scrollTop()) >= documentHeight - 40) {
             $('.nav-links a').removeClass('active-nav');
             $('.nav-links a[href$="#footer-section"]').addClass('active-nav');
@@ -74,7 +69,6 @@ $(document).ready(function() {
 
         var activeId = null;
         $('.section').each(function() {
-            // الشرط الذهبي: نعالج السكشن فقط إذا كان ظاهراً على الشاشة (ليس مخفياً)
             if ($(this).is(':visible')) {
                 var top = $(this).offset().top;
                 var height = $(this).outerHeight();
@@ -95,7 +89,7 @@ $(document).ready(function() {
         }
     });
 
-    // 4. التمرير الناعم ضمن نفس الصفحة
+    // ضبط السكرول التمرير الناعم ضمن نفس الصفحة
     $('.nav-links a').on('click', function(e) {
         var targetUrl = $(this).attr('href');
         var hashIndex = targetUrl.indexOf('#');
@@ -108,7 +102,7 @@ $(document).ready(function() {
             if (page === "" || page === currentPath) {
                 e.preventDefault();
                 var $targetElem = $(hash);
-                // تأكد من أن السكشن المستهدف موجود ومرئي
+                //تحديد مكان السكشن لتلوين الناف
                 if ($targetElem.length && $targetElem.is(':visible')) {
                     $('.nav-links a').removeClass('active-nav');
                     $(this).addClass('active-nav');
@@ -124,7 +118,7 @@ $(document).ready(function() {
     });
 
     // ==========================================
-    // 5. برمجيات السيارات ونموذج الحجز
+    //  برمجيات السيارات ونموذج الحجز
     // ==========================================
     $('.toggle-details-checkbox').on('change', function() {
         var $detailsRow = $(this).closest('tr').next('.car-details-row');
