@@ -669,6 +669,55 @@ table{
     border-radius: 8px;
 }
 
+.car-details-row td {
+    padding: 0;
+    border-bottom: 2px solid var(--purple-accent);
+}
+
+.car-details-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    background-color: rgba(157, 78, 221, 0.04);
+    padding: 20px 30px;
+}
+
+.car-image-gallery {
+    flex: 0 0 250px; 
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px var(--shadow-color);
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-card);
+}
+
+.detail-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.detail-img:hover {
+    transform: scale(1.05);
+}
+
+.car-specs-box {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    font-size: 14px;
+    color: var(--text-sub);
+}
+
+.car-specs-box span {
+    background-color: var(--bg-card);
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
 /* ==========================================
    7. الفوتر (Footer)
    ========================================== */
@@ -778,7 +827,30 @@ html.dark-mode .social-btn.x {
     .car-specs-box { flex-direction: column; gap: 8px; }
     .form-card-container fieldset { padding: 20px; }
     .btn-proceed { width: 100%; text-align: center; }
+    .car-details-wrapper {
+        flex-direction: column;
+        text-align: center;
+        padding: 15px;
+        gap: 15px;
+    }
+    
+    .car-image-gallery {
+        flex: 0 0 auto;
+        width: 100%;
+        max-width: 250px;
+        margin: 0 auto;
+    }
+
+    .car-specs-box {
+        justify-content: center;
+    }
+    
+    .car-specs-box span {
+        width: 100%; 
+    }
 }
+
+    
 /* ==========================================
    تنسيقات الصفحة الرئيسية (Home Page - home.html)
    ========================================== */
